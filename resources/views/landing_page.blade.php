@@ -505,18 +505,11 @@
 <!-- Hero Section with Carousel -->
 <section class="hero">
     <div class="hero-slider">
-        <div class="hero-slide">
-            <img src="img/Banner 1.png" alt="Perfume 1">
-        </div>
-        <div class="hero-slide">
-            <img src="img/Banner 2.png" alt="Perfume 2">
-        </div>
-        <div class="hero-slide">
-            <img src="img/Banner 2.png" alt="Perfume 2">
-        </div>
-        <div class="hero-slide">
-            <img src="img/Banner 2.png" alt="Perfume 2">
-        </div>
+        @foreach ($banner as $bn)
+            <div class="hero-slide">
+                <img src="{{ asset('storage/' . $dt->loc) }}" alt="{{ $dt->desc }}">
+            </div>
+        @endforeach
     </div>
 </section>
 
