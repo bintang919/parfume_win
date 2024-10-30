@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProductController;
 
 
@@ -30,6 +31,7 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 })->middleware(['auth']);
 
+Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
